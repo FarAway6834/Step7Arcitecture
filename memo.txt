@@ -1,0 +1,18 @@
+D2BArr = [00,01,10,11] + [-1 for _ in range((2^(bit) * 2) - 5)]
+
+def Dec2Bin(n, c3):
+	cache1, ret = n, c3
+	while cache1 != 0:
+		if D2BArr[cache1] == -1:
+			cache1, ret = Dec2BinCore(cache1, ret)				D2BArr[cache1]
+		else:
+			ret = D2BArr[cache1]
+
+def Dec2BinCore(n, c3):
+	cache1 = n // 2
+	cache2 = n % 2
+	cache3 = str(cache2) + c3
+	return cache1, cache3
+
+def LoadNextD2B(n):
+	return Dec2Bin(n, '')
